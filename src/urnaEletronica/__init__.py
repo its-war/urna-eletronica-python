@@ -25,7 +25,7 @@ class UrnaEletronica:
         :type numero_candidato: int
         :return: Nada
         """
-        for i, candidato in self.__candidatos:
+        for i, candidato in enumerate(self.__candidatos):
             if candidato.get_numero() == numero_candidato:
                 self.__candidatos[i].votar()
             else:
@@ -81,7 +81,7 @@ class UrnaEletronica:
             int ou False: O índice do candidato vencedor, caso haja um vencedor, ou False caso contrário.
         """
         total_votos = sum(candidato.get_votos() for candidato in self.__candidatos)
-        for i, candidato in self.__candidatos:
+        for i, candidato in enumerate(self.__candidatos):
             if candidato.get_votos() >= (total_votos / 2 + 1):
                 return i
             else:
