@@ -11,7 +11,6 @@ def menu():
 def apuro_votos():
     print('Votos em andamento')
     urna.apurar_votos('senha')
-    print(urna)
 
 
 def voto_menu():
