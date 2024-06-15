@@ -60,7 +60,7 @@ class UrnaEletronica:
             dados = ['DADOS DA VOTAÇÃO']
             for candidato in self.__candidatos:
                 dados.append(f'{candidato.get_partido()} - {candidato.get_nome()} - {candidato.get_votos()} votos')
-            if self.__tem_vencedor():
+            if self.__tem_vencedor() is not False:
                 dados.append(f'VENCEDOR: {self.__candidatos[self.__tem_vencedor()].get_nome()}')
             else:
                 dados.append('SEGUNDO TURNO NECESSÁRIO')
@@ -82,7 +82,7 @@ class UrnaEletronica:
         """
         total_votos = sum(candidato.get_votos() for candidato in self.__candidatos)
         for i, candidato in enumerate(self.__candidatos):
-            if candidato.get_votos() >= (total_votos / 2 + 1):
+            if candidato.get_votos() >= ((total_votos / 2) + 1):
                 return i
             else:
                 return False
@@ -104,3 +104,22 @@ class UrnaEletronica:
         Encerra o processo eleitoral.
         """
         exit(0)
+
+    def get_candidatos(self):
+        """
+        Essa função retorna a lista de candidatos.
+        """
+        return self.__candidatos
+
+    def get_candidato(self, numero):
+        """
+        Essa função retorna o candidato que tiver o número igual ao número fornecido
+        ou retorna None caso não tenha candidato com o número fornecido.
+        :param numero: número do candidato
+        :type numero: int
+        :return: Candidato | None
+        """
+        for candidato in self.__candidatos:
+            if candidato.get_numero() == numero:
+                return candidato
+        return None
