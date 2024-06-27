@@ -1,4 +1,5 @@
 from src.model import Candidato
+import sys
 
 
 class UrnaEletronica:
@@ -14,7 +15,7 @@ class UrnaEletronica:
         ]
         self.votos_nulos = 0
         self.votos_brancos = 0
-        self.__senha = 'karlos.warney.7410'
+        self.__senha = '123'
 
     def votar(self, numero_candidato):
         """
@@ -103,7 +104,7 @@ class UrnaEletronica:
         """
         Encerra o processo eleitoral.
         """
-        exit(0)
+        sys.exit(0)
 
     def get_candidatos(self):
         """

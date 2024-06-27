@@ -15,8 +15,12 @@ def limpar_terminal():
 
 
 def printar_candidatos():
+    print()
+    print('-' * 8, 'CANDIDATOS', 8 * '-')
     for candidato in urna.get_candidatos():
         print(f'{candidato.get_numero()} — {candidato.get_nome()} ({candidato.get_partido()})')
+    print()
+    print()
 
 
 def apuro_votos_menu():
@@ -76,6 +80,7 @@ def voto_menu():
     while True:
         print('1 — Votar em um candidato')
         print('2 — Votar em branco')
+        print()
         voto_menu_opcao = input('Digite a opção: ')
 
         if voto_menu_opcao == '1':
